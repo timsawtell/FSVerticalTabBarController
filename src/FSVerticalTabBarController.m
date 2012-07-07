@@ -25,6 +25,8 @@
 @synthesize viewControllers = _viewControllers;
 @synthesize selectedIndex = _selectedIndex;
 @synthesize tabBarWidth = _tabBarWidth;
+@synthesize infoView = _infoView;
+@synthesize infoLabel = _infoLabel;
 
 
 - (FSVerticalTabBar *)tabBar
@@ -144,6 +146,14 @@
     return self;
 }
 
+- (void)customizeInfoLabel
+{
+    self.infoLabel.layer.cornerRadius = 5.0f;
+    self.infoLabel.text = @"Info Label";
+    self.infoLabel.numberOfLines = 0;
+    self.infoLabel.lineBreakMode = UILineBreakModeWordWrap;
+    self.infoLabel.textAlignment = UITextAlignmentCenter;
+}
 
 - (void)loadView
 {
@@ -151,8 +161,15 @@
     layoutContainerView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     layoutContainerView.autoresizesSubviews = YES;
     
+    // create the job number bar
+    self.infoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tabBarWidth, 44)];
+    self.infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(6, 8, self.tabBarWidth - 12, 28)];
+    [self.infoView addSubview:self.infoLabel];
+    [self customizeInfoLabel];
+    
     // create tab bar
-    self.tabBar.frame = CGRectMake(0, 0, self.tabBarWidth, layoutContainerView.bounds.size.height);
+    self.tabBar.frame = CGRectMake(0, 44, self.tabBarWidth, layoutContainerView.bounds.size.height);
+    [layoutContainerView addSubview:self.infoView];
     [layoutContainerView addSubview:self.tabBar];
     
     // return a ready view

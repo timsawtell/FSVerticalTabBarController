@@ -29,9 +29,10 @@
 @property (nonatomic, readwrite, assign) UIViewController *selectedViewController;
 @property (nonatomic, readwrite, assign) NSUInteger selectedIndex;
 @property (nonatomic, readwrite, assign) CGFloat tabBarWidth;
-
+@property (nonatomic, readwrite, strong) UIView *infoView;
+@property (nonatomic, readwrite, strong) UILabel *infoLabel;
 
 - (void)setViewControllers:(NSArray *)viewControllers animated:(BOOL)animated;
-
+- (void)customizeInfoLabel;
 
 @end
