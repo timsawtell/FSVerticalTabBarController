@@ -163,12 +163,12 @@
     
     // create the job number bar
     self.infoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tabBarWidth, 44)];
-    self.infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(6, 8, self.tabBarWidth - 12, 28)];
+    self.infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(1, 8, self.tabBarWidth - 2, 28)];
     [self.infoView addSubview:self.infoLabel];
     [self customizeInfoLabel];
     
     // create tab bar
-    self.tabBar.frame = CGRectMake(0, 44, self.tabBarWidth, layoutContainerView.bounds.size.height);
+    self.tabBar.frame = CGRectMake(0, 44, self.tabBarWidth, layoutContainerView.bounds.size.height - 44);
     [layoutContainerView addSubview:self.infoView];
     [layoutContainerView addSubview:self.tabBar];
     

@@ -103,7 +103,7 @@
         [self selectRowAtIndexPath:[NSIndexPath indexPathForRow:selectedItemIndex
                                                       inSection:0]
                           animated:YES
-                    scrollPosition:UITableViewRowAnimationTop];
+                    scrollPosition:UITableViewScrollPositionNone];
     }
 }
 
